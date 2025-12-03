@@ -1,12 +1,13 @@
 Feature: AlertsManagement
 
-  Background: Since the operator has logged into the system and accessed the alert management module
+  Background:
     Given I am on the Operators login page.
 
-  Scenario: Create a new alert with priority and assigned responsible party
-    When the operator creates a new alert
-    And assigns a priority level to the alert
-    And assigns a responsible party to handle it
+  Scenario Outline: Create a new alert with priority and assigned responsible party
+    When the operator creates a new alert with "<area>" "<priority>" "<responsible>" "<description>"
     And saves the alert
-    Then the system confirms the creation of the alert
+    Then the operator sees the newly created alert listed
 
+    Examples:
+      | area   | priority | responsible | description       |
+      | CarroMotor  | Alta     | Mecánico   | Cambio de aceite  |

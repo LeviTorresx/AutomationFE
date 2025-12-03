@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="automationfe.certificacion.FleetGuard360.runners.RunnerAlertsManagement" tests="0" skipped="0" failures="0" errors="0" timestamp="1970-01-01T00:00:00Z" hostname="JUNI110" time="0.0">
+<testsuite name="automationfe.certificacion.FleetGuard360.runners.RunnerAlertsManagement" tests="0" skipped="0" failures="0" errors="0" timestamp="1970-01-01T00:00:00Z" hostname="fedora" time="0.0">
   <properties/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[[Test worker] INFO  - ?[96m
@@ -19,7 +19,13 @@
  Join the Serenity Community on Gitter: https://gitter.im/serenity-bdd/serenity-core 
 -------------------------------------------------------------------------------------
 ?[0m
+[Test worker] INFO  - Test Suite Started: Operator Login
 [Test worker] INFO  - Test Suite Started: Alerts management
+[Test worker] INFO  - Test Suite Started: Edit alert
+[Test worker] INFO  - Test Suite Started: Delete alert
+[Test worker] INFO  - Test Suite Started: Operator Login
 [Test worker] INFO  - Test Suite Started: Alerts management
+[Test worker] INFO  - Test Suite Started: Edit alert
+[Test worker] INFO  - Test Suite Started: Delete alert
 ]]></system-err>
 </testsuite>

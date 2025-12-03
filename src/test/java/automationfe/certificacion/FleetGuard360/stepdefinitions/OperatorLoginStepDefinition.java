@@ -1,46 +1,47 @@
 package automationfe.certificacion.FleetGuard360.stepdefinitions;
 
-import automationfe.certificacion.FleetGuard360.interactions.SelectThe;
+import automationfe.certificacion.FleetGuard360.questions.DashboardPath;
 import automationfe.certificacion.FleetGuard360.tasks.ClickOn;
 import automationfe.certificacion.FleetGuard360.tasks.EnterEmailAndPassword;
+import automationfe.certificacion.FleetGuard360.tasks.GoToHomePage;
 import automationfe.certificacion.FleetGuard360.utils.WaitTime;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.actions.Open;
-import net.serenitybdd.screenplay.actors.OnStage;
-import net.serenitybdd.screenplay.actors.OnlineCast;
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static org.hamcrest.Matchers.is;
+
 
 import static automationfe.certificacion.FleetGuard360.stepdefinitions.Hooks.user;
 import static automationfe.certificacion.FleetGuard360.userinterfaces.SingInPage.*;
 
 public class OperatorLoginStepDefinition {
 
-    public final String EMAIL_GLOBAL = "juan.perez@example.com";
-    public final String PASSWORD_GLOBAL = "juan";
-
-
-    @When("The operator enters a valid username and password.")
-    public void theOperatorEntersAValidUsernameAndPassword() {
+    @Given("the operator is on the login page")
+    public void theOperatorIsOnTheLoginPage() {
+        user.attemptsTo(
+                GoToHomePage.open()
+        );
         WaitTime.putWaitTimeOf(1000);
-        user.attemptsTo(EnterEmailAndPassword.with(EMAIL_GLOBAL, PASSWORD_GLOBAL, EMAIL_TEXT_BOX, PASSWORD_TEXT_BOX));
-        WaitTime.putWaitTimeOf(1000);
-
     }
-    @When("The operator has assigned permissions for alert management.")
-    public void theOperatorHasAssignedPermissionsForAlertManagement() {
+    @When("the operator enters a valid {string} and a valid {string}")
+    public void theOperatorEntersAValidUsernameAndAValidPassword(String username, String password) {
+        WaitTime.putWaitTimeOf(1000);
+        user.attemptsTo(EnterEmailAndPassword.with(username, password, EMAIL_TEXT_BOX, PASSWORD_TEXT_BOX));
+        WaitTime.putWaitTimeOf(1000);
+    }
+    @When("clicks the login button")
+    public void clicksTheLoginButton() {
         user.attemptsTo(ClickOn.button(ENTER_BUTTON));
-        WaitTime.putWaitTimeOf(1000);
+        WaitTime.putWaitTimeOf(3000);
     }
-    @Then("The system grants access.")
-    public void theSystemGrantsAccess() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Then("the operator is redirected to the dashboard")
+    public void theOperatorIsRedirectedToTheDashboard() {
+        user.should(
+                seeThat("La URL debe ser del dashboard",
+                        DashboardPath.isCorrect(),
+                        is(true)
+                )
+        );
     }
-    @Then("The system displays only the alerts corresponding to the operator's role or assignment.")
-    public void theSystemDisplaysOnlyTheAlertsCorrespondingToTheOperatorSRoleOrAssignment() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-}
 }
