@@ -1,6 +1,7 @@
 package automationfe.certificacion.FleetGuard360.stepdefinitions;
 
 import automationfe.certificacion.FleetGuard360.questions.DashboardPath;
+import automationfe.certificacion.FleetGuard360.questions.LoginFailed;
 import automationfe.certificacion.FleetGuard360.tasks.ClickOn;
 import automationfe.certificacion.FleetGuard360.tasks.EnterEmailAndPassword;
 import automationfe.certificacion.FleetGuard360.tasks.GoToHomePage;
@@ -44,4 +45,19 @@ public class OperatorLoginStepDefinition {
                 )
         );
     }
+
+    @When("the operator enters an invalid {string} and {string}")
+    public void theOperatorEntersAnInvalidUsernameOrPassword(String username, String password) {
+        WaitTime.putWaitTimeOf(1000);
+        user.attemptsTo(EnterEmailAndPassword.with(username, password, EMAIL_TEXT_BOX, PASSWORD_TEXT_BOX));
+        WaitTime.putWaitTimeOf(1000);
+    }
+
+    @Then("an error message {string} is displayed")
+    public void anErrorMessageIsDisplayed(String expectedMessage) {
+        user.should(
+                seeThat(LoginFailed.successfully())
+        );
+    }
+
 }

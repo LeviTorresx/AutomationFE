@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features",
+        features = "src/test/resources/features/01_OperatorLogin.feature",
         glue = "automationfe.certificacion.FleetGuard360.stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE)
 

@@ -14,3 +14,16 @@ Feature: Operator Login
     Examples:
       | username                | password      |
       | juan.perez@example.com  | juan          |
+
+
+
+  Scenario Outline: Login failed due to invalid credentials
+    Given the operator is on the login page
+    When the operator enters an invalid "<username>" and "<password>"
+    And clicks the login button
+    Then an error message "<error_message>" is displayed
+
+    Examples:
+      | username                | password  |
+      | juan.perez@example.com  | wrong123  |
+      | unknown.user@example.com| juan      |

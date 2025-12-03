@@ -15,4 +15,7 @@ public class ToastComponents {
     public static final Target TOAST_DELETE_ALERT = Target.the("alert deleted toast")
             .locatedBy("//li[contains(., 'Alerta eliminada')]");
 
+    public static final Target TOAST_FAILED_LOGIN = Target.the("alert deleted toast")
+            .locatedBy("//li[contains(., 'Error de autenticación')]");
+
 }
