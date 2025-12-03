@@ -20,6 +20,12 @@
 -------------------------------------------------------------------------------------
 ?[0m
 [Test worker] INFO  - Test Suite Started: Operator Login
+[Test worker] INFO  - Test Suite Started: Alerts management
+[Test worker] INFO  - Test Suite Started: Edit alert
+[Test worker] INFO  - Test Suite Started: Delete alert
 [Test worker] INFO  - Test Suite Started: Operator Login
+[Test worker] INFO  - Test Suite Started: Alerts management
+[Test worker] INFO  - Test Suite Started: Edit alert
+[Test worker] INFO  - Test Suite Started: Delete alert
 ]]></system-err>
 </testsuite>

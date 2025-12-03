@@ -13,3 +13,4 @@ Then the operator sees the alert updated with the new information
 Examples:
 | initialName | newArea   | newPriority | newResponsible | newDescription      |
 | CarroMotor  | CarritoMotor    | Media       | Seguridad      | Ajuste preventivo   |
+| CarritoMotor  | CarritoMotor    | Alta       | Seguridad      | Ajuste preventivo   |
